@@ -1,0 +1,34 @@
+<div class="flex items-center p-2 justify-between bg-[#121217] rounded-xl my-1">
+  <div class="flex items-center justify-center px-4">
+    <button
+      class="bg-transparent hover:bg-transparent gap-2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+      (click)="updateTaskEvent(task().id)"
+      tabIndex="0"
+      aria-label="Check/Uncheck Task"
+    >
+      @if (!task().completed) {
+      <i class="ai-circle text-[#FD33C5] text-xl"></i
+      ><span class="text-xs md:text-lg text-gray-100 font-light px-1">{{
+        task().item
+      }}</span>
+      } @else {
+      <i class="ai-circle-check-fill text-[#FD33C5] text-xl"></i
+      ><span
+        class="text-xs md:text-lg text-gray-100 font-light px-1"
+        [ngClass]="task().completed ? 'line-through opacity-40' : ''"
+        >{{ task().item }}</span
+      >
+      }
+    </button>
+  </div>
+  <div>
+    <button
+      class="h-8 px-4 flex gap-2 bg-transparent text-red-500 md:h-10 hover:bg-red-800/20 items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+      (click)="deleteTaskEvent(task().id)"
+      aria-label="Delete Task"
+      tabIndex="0"
+    >
+      <i class="ai-cross text-base"></i>
+    </button>
+  </div>
+</div>

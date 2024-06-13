@@ -1,0 +1,11 @@
+<div class="w-full flex flex-col bg-[#18181C] rounded-xl p-8 gap-2 pt-[40px]">
+  @for (task of taskList(); track $index) {
+  <app-task-card
+    (taskDeleteEvent)="deleteTaskEvent($event)"
+    (taskUpdateEvent)="updateTaskEvent($event)"
+    [task]="task"
+  />
+  } @empty {
+  <app-no-tasks />
+  }
+</div>
