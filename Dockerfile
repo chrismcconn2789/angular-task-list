@@ -1,11 +1,16 @@
-FROM node:alpine
+FROM node:latest as build
 
-WORKDIR /usr/src/app
+WORKDIR /usr/local/app
 
-COPY . /usr/src/app
-
-RUN npm install -g @angular/cli
+COPY ./ /usr/local/app/
 
 RUN npm install
 
-CMD ["ng", "serve", "--host", "0.0.0.0"]
+RUN npm run build
+
+FROM nginx:latest
+
+COPY --from=build /usr/local/app/dist/browser /usr/share/nginx/html
+
+# Expose port 80
+EXPOSE 80
