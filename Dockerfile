@@ -12,7 +12,7 @@ RUN npm run build
 
 FROM nginx:alpine
 
-COPY --from=app /usr/src/app/dist/angular-docker/browser /usr/share/nginx/html
+COPY --from=app /usr/src/app/dist/angular-task-list/browser /usr/share/nginx/html
 
 RUN ls /usr/share/nginx/html
 
