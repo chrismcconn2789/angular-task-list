@@ -1,21 +1,23 @@
-FROM node:alpine AS app
+### STEP 1: Build ##
+
+FROM node:19-alpine AS build
 
 WORKDIR /usr/src/app
 
-COPY . /usr/src/app
+COPY package.json package-lock.json ./
 
 RUN npm install
 
-RUN npm run build
+COPY . .
 
+RUN npm install -g @angular/cli
 
+RUN ng build --configuration production
 
-FROM nginx:alpine
+### STEP 2: Deploy ###
 
-COPY --from=app /usr/src/app/dist/angular-task-list/browser /usr/share/nginx/html
+FROM nginx:1.23.3-alpine
 
-RUN ls /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/nginx.conf
 
-COPY ./nginx.conf /etc/nginx/conf.d/default.conf
-
-EXPOSE 80
+COPY --from=build /usr/src/app/dist/angular-task-list/browser /usr/share/nginx/html
