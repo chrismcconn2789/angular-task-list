@@ -1,27 +1,30 @@
-# AngularTaskList
+# Angular Task List App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.7.
+![Angular Task List](https://utfs.io/f/bc0df5b9-92f5-4450-be7f-2d8e7a2d4c2e-tq79f4.png)
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+#### Description
 
-## Code scaffolding
+A simple todo list application built using Angular and NPM, styled using Tailwind CSS and icon svgs provided by Akar Icons. This application was used to compare the developer experience, performance and differences between React and Angular in 2024.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+#### Live Demo & Blog Article
 
-## Build
+[Live Demo](https://angular-task-list.chrismcconnell.dev)
+[Comparison Blog](https://chrismcconnell.dev/blog/react-vs-angular-2024)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+#### List of packages used
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- angular/animations
+- angular/common
+- angular/compiler
+- angular/core
+- angular/forms
+- angular/platform-browser
+- angular/platform-browser-dynamic
+- angular/router
+- ngx-sonner
+- rxjs
+- tslib
+- uuid
+- zone.js
